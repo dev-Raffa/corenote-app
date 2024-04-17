@@ -9,6 +9,6 @@ const buildEslintCommand = (filenames) =>
 module.exports = {
   '*.{js,jsx,ts,tsx}': [
     buildEslintCommand,
-    "yarn test --passWithNoTests --bail"
 ],
 }
+

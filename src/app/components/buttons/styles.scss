@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.bt {
+    @include flexCenter(row);
+    background-color: transparent;
+    border: none;
+}

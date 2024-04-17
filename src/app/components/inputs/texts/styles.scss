@@ -1,0 +1,21 @@
+@import '../../styles/mixins';
+
+.search-notes{
+    @include flexBetween(row);
+    height: 28px;
+    width: 314.1px;
+    padding: 0 8px;
+    border-radius: 3px;
+    color: #9E9E9E;
+    border: 1px solid #D9D9D9;
+    box-shadow: 1px 1px 3px 0px #00000040;
+
+    input{
+        width: 90%;
+        height: 20px;
+        outline: none;
+        font-size: 9px;
+        border: none;
+        color: #9A9A9A;
+    }
+}

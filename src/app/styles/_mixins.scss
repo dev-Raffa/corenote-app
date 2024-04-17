@@ -1,0 +1,31 @@
+
+
+
+@mixin flexCenter($direction) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+@mixin flexLeft($direction){
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: $direction;
+}
+
+@mixin flexRight($direction){
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: $direction;
+}
+
+@mixin flexBetween($direction){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: $direction;
+}
+
