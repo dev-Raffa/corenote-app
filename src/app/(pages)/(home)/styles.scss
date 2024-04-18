@@ -1,0 +1,39 @@
+@import '../../styles/mixins' ;
+
+.content {
+    @include flexCenter(column);
+    padding: 25px;
+    gap: 65px;
+
+    section{   
+        @include flexCenter(row);
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        h4{
+            width: 390px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14.52px;
+            text-align: left;
+            padding-left: 26px;
+        }
+        
+        .post-its{
+            gap: 58px 35px;
+            padding-left: 0;
+        }
+    }
+
+    @media screen and (min-width: 865px) {
+        &{
+            padding-left: 0;
+        }
+      
+        section:not([class= "section-create"]){
+            @include flexLeft(row);
+        }
+      
+    }
+}

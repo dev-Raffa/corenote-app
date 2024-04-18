@@ -1,4 +1,4 @@
-import './styles/global.scss';
+import '../styles/global.scss';
 import { Header } from '../components/layout/header';
 import { fontFamily } from '../styles/fonts/inter';
 

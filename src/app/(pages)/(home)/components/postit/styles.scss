@@ -1,0 +1,60 @@
+@import'../../../../styles/mixins';
+@import'../../../../styles/variables';
+
+.post-it{
+    width: 390px;
+    height: 103.36PX;
+    border: 1px solid #D9D9D9;
+    border-radius: 25px;
+    background-color: $secondary-color;
+    position: relative;
+    
+    header {
+        @include flexBetween(row);
+        height: 40px;
+        border-bottom: 1px solid #D9D9D9;
+        padding: 0 23px;
+        
+        h3{
+            font-weight: 700;
+            font-size: 14.2px;
+            color: #333333;
+        }
+    }
+    
+    section {
+        @include flexLeft(row);
+        padding: 13px 23px;
+        
+        p{
+            color: #50656E;
+            font-weight: 400;
+            font-size: 13px;
+        }
+    }
+    
+    footer {
+        @include flexLeft(row);
+        width: 100%;
+        padding: 0 23px;
+        height: 40px;
+        position: absolute;
+        bottom: 0;
+        gap: 5px;
+
+        .closed {
+            margin-left: auto;
+        }
+    }
+
+    &[id]{
+        height: 437.59px;
+        box-shadow: 2px 2px 3px 0px #00000040;
+
+        section {
+            p{
+                color: #4F4F4D;
+            }
+        }
+    }
+}

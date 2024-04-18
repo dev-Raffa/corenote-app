@@ -1,7 +1,7 @@
-export interface IPostIt {
+export type postIt = {
   id: number;
   title: string;
   content: string;
   isFavorite: boolean;
-  bgColor: string;
-}
+  color: string;
+};

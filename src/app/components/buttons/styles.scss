@@ -4,4 +4,14 @@
     @include flexCenter(row);
     background-color: transparent;
     border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+
+    &[clicked]{
+        margin: 0;
+        background-color: #FFE3B3;
+    }
+    
 }

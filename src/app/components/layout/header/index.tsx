@@ -1,11 +1,11 @@
 import './styles.scss';
-import { InputSearch } from '../../inputs/texts/variants/search';
+import { InputSearch } from '../../inputs/search/search';
 import { Logo } from '../logo';
 import { Button } from '../../buttons';
 
 export function Header() {
   return (
-    <header>
+    <header className="layout-header">
       <Logo />
       <InputSearch />
       <Button.Close />

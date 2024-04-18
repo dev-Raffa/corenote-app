@@ -1,20 +1,37 @@
+import './styles.scss';
 import { Button } from '@/app/components/buttons';
-import { IPostIt } from '@/app/interfaces/postit';
+import { CheckBox } from '@/app/components/checkBox';
+import { type postIt } from '@/utils/interfaces/postit';
 
-export function PostIt(): React.ReactElement;
-export function PostIt(args: IPostIt): React.ReactElement;
-
-export function PostIt(args?: IPostIt) {
-  if (args) {
+export const PostIt = ({ note }: { note?: postIt }) => {
+  if (!note) {
     return (
-      <article>
+      <article className="post-it">
         <header>
-          <h3>{args.title}</h3>
-          <Button.Close />
+          <h3>Título</h3>
+          <CheckBox.IsFavorite value={false} />
         </header>
-        <section>{args.content}</section>
-        <footer></footer>
+        <section>
+          <p> Criar nota...</p>
+        </section>
+      </article>
+    );
+  } else {
+    return (
+      <article className="post-it" id={`${note.id}`} color={note.color}>
+        <header>
+          <h3>{note.title}</h3>
+          <CheckBox.IsFavorite value={note.isFavorite} />
+        </header>
+        <section>
+          <p>{note.content}</p>
+        </section>
+        <footer>
+          <Button.Edit />
+          <Button.Change_Color />
+          <Button.Close />
+        </footer>
       </article>
     );
   }
-}
+};

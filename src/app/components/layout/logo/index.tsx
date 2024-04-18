@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import './styles.scss';
-import PostIts from '../../../../public/images/post-its.png';
+import PostIts from '../../../../../public/images/post-its.png';
 
 export function Logo() {
   return (

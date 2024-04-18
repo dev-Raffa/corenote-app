@@ -1,0 +1,18 @@
+@import '../../../styles/mixins';
+
+.isFavorite {
+    @include flexCenter(row);
+    font-size: 19px;
+    input[type= "checkbox" ]{
+        display: none;
+    };
+
+    svg {
+        stroke: #455A64;
+        stroke-width: 1px;
+        fill: none;
+    }
+    input[type= "checkbox" ][value = "true"] ~ svg{
+        fill: #FFA000;
+    }
+}
