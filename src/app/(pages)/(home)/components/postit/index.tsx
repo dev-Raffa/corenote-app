@@ -18,7 +18,11 @@ export const PostIt = ({ note }: { note?: postIt }) => {
     );
   } else {
     return (
-      <article className="post-it" id={`${note.id}`} color={note.color}>
+      <article
+        className="post-it"
+        id={`${note.id}`}
+        color={`option${note.colorOption}`}
+      >
         <header>
           <h3>{note.title}</h3>
           <CheckBox.IsFavorite value={note.isFavorite} />

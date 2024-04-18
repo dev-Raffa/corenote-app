@@ -3,5 +3,5 @@ export type postIt = {
   title: string;
   content: string;
   isFavorite: boolean;
-  color: string;
+  colorOption: number;
 };

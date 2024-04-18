@@ -1,6 +1,7 @@
 @import'../../../../styles/mixins';
 @import'../../../../styles/variables';
 
+
 .post-it{
     width: 390px;
     height: 103.36PX;
@@ -55,6 +56,12 @@
             p{
                 color: #4F4F4D;
             }
+        }
+    }
+
+    @each $option, $color in $note-color-options{
+        &[color = #{$option}]{
+            background-color: $color;
         }
     }
 }

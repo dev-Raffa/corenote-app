@@ -5,35 +5,35 @@ export const MockApi: postIt[] = [
     id: 1,
     title: 'Titulo',
     content: `Clique ou arraste o arquivo para esta área para fazer upload`,
-    color: '#FFFFFF',
+    colorOption: 0,
     isFavorite: true
   },
   {
     id: 2,
     title: 'Titulo',
     content: `Clique ou arraste o arquivo para esta área para fazer upload`,
-    color: '#BAE2FF',
+    colorOption: 1,
     isFavorite: true
   },
   {
     id: 3,
     title: 'Titulo',
     content: `Clique ou arraste o arquivo para esta área para fazer upload`,
-    color: '#FFFFFF',
+    colorOption: 0,
     isFavorite: false
   },
   {
     id: 4,
     title: 'Titulo',
     content: `Clique ou arraste o arquivo para esta área para fazer upload`,
-    color: '#FFE8AC',
+    colorOption: 3,
     isFavorite: false
   },
   {
     id: 5,
     title: 'Titulo',
     content: `Clique ou arraste o arquivo para esta área para fazer upload`,
-    color: '#B9FFDD',
+    colorOption: 2,
     isFavorite: false
   }
 ];

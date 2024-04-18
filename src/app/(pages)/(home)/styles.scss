@@ -2,7 +2,7 @@
 
 .content {
     @include flexCenter(column);
-    padding: 25px;
+    padding-top: 25px;
     gap: 65px;
 
     section{   
@@ -21,19 +21,22 @@
         }
         
         .post-its{
-            gap: 58px 35px;
-            padding-left: 0;
+            gap: 58px 140px;
         }
     }
 
-    @media screen and (min-width: 865px) {
-        &{
-            padding-left: 0;
-        }
+    @media screen and (min-width: 920px) {
       
+        &{
+            padding-left: 105px;
+        }
+
         section:not([class= "section-create"]){
             @include flexLeft(row);
+            
+            .post-its {
+                gap: 58px 35px;
+            }
         }
-      
     }
 }

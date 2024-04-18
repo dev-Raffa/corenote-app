@@ -3,7 +3,9 @@
 .search-notes{
     @include flexBetween(row);
     height: 28px;
-    width: 314.1px;
+    width: 50%;
+    min-width: 314.1px;
+    max-width: 530.17px;
     padding: 0 8px;
     border-radius: 3px;
     color: #9E9E9E;

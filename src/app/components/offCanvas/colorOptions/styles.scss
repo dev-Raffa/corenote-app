@@ -1,22 +1,6 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$colors:(
-    "option1": #BAE2FF, 
-    "option2": #B9FFDD, 
-    "option3": #FFE8AC, 
-    "option4": #FFCAB9,
-    "option5": #F99494, 
-    "option6": #9DD6FF, 
-    "option7": #ECA1FF,
-    "option8": #DAFF8B,
-    "option9": #FFA285,
-    "option10": #CDCDCD,
-    "option11": #979797,
-    "option12": #A99A7C
-);
-
-
 .card-color-options{
     @include flexCenter(row);
     width: 286.94px;
@@ -39,7 +23,7 @@ $colors:(
         border-radius: 50%;
     }
 
-    @each $option, $color in $colors {
+    @each $option, $color in $note-color-options {
         .color-#{$option} {
             background-color: $color;
         }
