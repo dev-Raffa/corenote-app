@@ -1,8 +1,8 @@
-import { Console } from 'console';
 import './styles.scss';
 import { ReactNode } from 'react';
 
-export function ColorOptions() {
+export function ColorOptions(noteId: { noteId: number }) {
+  const btChangeColorOnClickHandler = () => {};
   const generateButttons = (): ReactNode => {
     const arr = [];
     for (let index = 0; index < 12; index++) {

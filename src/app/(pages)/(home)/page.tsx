@@ -1,9 +1,12 @@
 import './styles.scss';
 
 import { PostIt } from './components/postit';
-import { MockApi } from '@/api/mock/db/db.mock';
+import { CorenoteApi } from '@/app/services/corenoteApi';
+import { postIt } from '@/utils/interfaces/postit';
 
-export default function Home() {
+export default async function Home() {
+  const notes: postIt[] = await new CorenoteApi().notes.getAll();
+
   return (
     <main className="content">
       <section className="section-create">
@@ -12,7 +15,7 @@ export default function Home() {
       <section className="section-favorite">
         <h4>Favoritas</h4>
         <section className="post-its">
-          {MockApi.map((note, index) => {
+          {notes.map((note, index) => {
             if (note.isFavorite) {
               return <PostIt key={`note-favorite-${index}`} note={note} />;
             }
@@ -22,7 +25,7 @@ export default function Home() {
       <section className="section-others">
         <h4>Outras</h4>
         <section className="post-its">
-          {MockApi.map((note, index) => {
+          {notes.map((note, index) => {
             if (!note.isFavorite) {
               return <PostIt key={`note-not-favorite-${index}`} note={note} />;
             }

@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import './styles.scss';
+import Image from 'next/image';
 import PostIts from '../../../../../public/images/post-its.png';
 
 export function Logo() {

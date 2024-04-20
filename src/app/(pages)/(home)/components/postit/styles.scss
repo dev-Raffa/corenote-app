@@ -1,5 +1,5 @@
 @import'../../../../styles/mixins';
-@import'../../../../styles/variables';
+@import'../../../../styles/variables.module.scss';
 
 
 .post-it{
@@ -16,7 +16,10 @@
         border-bottom: 1px solid #D9D9D9;
         padding: 0 23px;
         
-        h3{
+        input[type= "text"]{
+            background-color: transparent;
+            border: none;
+            outline: none;
             font-weight: 700;
             font-size: 14.2px;
             color: #333333;
@@ -43,9 +46,16 @@
         bottom: 0;
         gap: 5px;
 
-        .closed {
+        .closed{
             margin-left: auto;
         }
+
+
+        .save{
+            margin-left: auto;
+        }
+            
+        
     }
 
     &[id]{
@@ -62,6 +72,10 @@
     @each $option, $color in $note-color-options{
         &[color = #{$option}]{
             background-color: $color;
+            
+            header{
+                border-bottom: 1px solid #FFFFFF;
+            }
         }
     }
 }

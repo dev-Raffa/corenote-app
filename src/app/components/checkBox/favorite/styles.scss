@@ -12,7 +12,7 @@
         stroke-width: 1px;
         fill: none;
     }
-    input[type= "checkbox" ][value = "true"] ~ svg{
+    input[type= "checkbox" ][checked] ~ svg{
         fill: #FFA000;
     }
 }

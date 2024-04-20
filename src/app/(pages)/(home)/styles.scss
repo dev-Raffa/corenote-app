@@ -1,4 +1,5 @@
 @import '../../styles/mixins' ;
+@import '../../styles/variables.module.scss' ;
 
 .content {
     @include flexCenter(column);
@@ -25,7 +26,7 @@
         }
     }
 
-    @media screen and (min-width: 920px) {
+    @media screen and (min-width: $breakpoint) {
       
         &{
             padding-left: 105px;

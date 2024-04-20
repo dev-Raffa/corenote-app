@@ -1,10 +1,16 @@
 import { VscStarFull } from 'react-icons/vsc';
 import './styles.scss';
+import { InputHTMLAttributes } from 'react';
 
-export function CheckBoxIsFavorite({ value }: { value: boolean }) {
+type checkBox = React.DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
+export function CheckBoxIsFavorite({ ...args }: checkBox) {
   return (
-    <label htmlFor="favorite" className="isFavorite">
-      <input type="checkbox" name="favorite" value={`${value}`}></input>
+    <label className="isFavorite">
+      <input type="checkbox" {...args} />
       <VscStarFull />
     </label>
   );
