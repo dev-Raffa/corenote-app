@@ -1,6 +1,7 @@
 import '../styles/global.scss';
 import { Header } from '../components/layout/header';
 import { fontFamily } from '../styles/fonts/inter';
+import { Providers } from '../providers';
 
 export default function RootLayout({
   children
@@ -10,8 +11,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={fontFamily.className}>
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

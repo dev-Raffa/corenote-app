@@ -1,46 +1,54 @@
-import { postIt } from '@/utils/interfaces/postit';
 import 'dotenv/config';
+import { note } from '@/utils/interfaces/note';
 
 export class ApiRouterNotes {
-  private endpoint: string = `${process.env.BASE_URL}notes`;
+  private endpoint: string = `${process.env.NEXT_PUBLIC_BASEURL}notes`;
   private headers: Headers = new Headers();
 
   constructor() {
     this.headers.append('content-Type', 'application/json');
-    this.headers.append('access-key', String(process.env.SECRET_KEY));
+    this.headers.append(
+      'access-key',
+      String(process.env.NEXT_PUBLIC_SECRETKEY)
+    );
   }
 
-  async getAll(): Promise<any> {
-    console.log(this.endpoint);
+  async getAll(): Promise<note[]> {
     return await fetch(this.endpoint, {
       headers: this.headers,
       method: 'GET'
-    }).then((data) => data.json());
+    }).then((data) => {
+      return data.json();
+    });
   }
-  async save(args: Omit<postIt, 'id'>) {
+
+  async save(args: Omit<note, 'id'>): Promise<note[]> {
     const create = {
-      ...args
+      create: { ...args }
     };
 
     return await fetch(this.endpoint, {
       method: 'POST',
+      headers: this.headers,
       body: JSON.stringify(create)
-    });
+    }).then((data) => data.json());
   }
 
-  async edit(id: number, args: Partial<postIt>) {
+  async edit(id: number, args: Partial<note>): Promise<note> {
     const update = {
-      ...args
+      update: { ...args }
     };
     return await fetch(`${this.endpoint}/${id}`, {
       method: 'PATCH',
+      headers: this.headers,
       body: JSON.stringify(update)
-    });
+    }).then((data) => data.json());
   }
 
-  async delete(id: number) {
+  async delete(id: number): Promise<note[]> {
     return await fetch(`${this.endpoint}/${id}`, {
-      method: 'DELETE'
-    });
+      method: 'DELETE',
+      headers: this.headers
+    }).then((data) => data.json());
   }
 }

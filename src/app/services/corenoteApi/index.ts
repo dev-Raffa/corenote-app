@@ -1,5 +1,9 @@
+import 'dotenv/config';
 import { ApiRouterNotes } from './routers/notes';
 
-export class CorenoteApi {
+class CorenoteApi {
   notes = new ApiRouterNotes();
+  constructor() {}
 }
+
+export const coreNoteApi = new CorenoteApi();

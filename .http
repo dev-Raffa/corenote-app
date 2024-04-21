@@ -1,0 +1,9 @@
+PATCH https://corenote-api-pied.vercel.app/notes/1 HTTP/1.1
+content-type: application/json
+access-key: db1c32b3-2539-4f15-907d-4b4ad74ca5f3
+
+{
+    "update":{
+        "colorOption": 0
+    }
+}

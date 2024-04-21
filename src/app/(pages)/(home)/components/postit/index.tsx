@@ -4,12 +4,12 @@ import './styles.scss';
 import { ChangeEvent, useState } from 'react';
 import { Button } from '@/app/components/buttons';
 import { CheckBox } from '@/app/components/checkBox';
-import { type postIt } from '@/utils/interfaces/postit';
+import { type note } from '@/utils/interfaces/note';
 
-export const PostIt = ({ note }: { note?: postIt }) => {
+export const PostIt = ({ note }: { note?: note }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [buttonClicked, setButtonClicked] = useState<string>('');
-  const [postItData, setPostData] = useState<Partial<postIt> | undefined>(note);
+  const [postItData, setPostData] = useState<Partial<note> | undefined>(note);
 
   const btChangeColorOnClickHandler = () => {
     setButtonClicked('change_color');

@@ -1,11 +1,12 @@
+'use client';
+
 import './styles.scss';
 
 import { PostIt } from './components/postit';
-import { CorenoteApi } from '@/app/services/corenoteApi';
-import { postIt } from '@/utils/interfaces/postit';
+import { usePostIts } from '@/app/providers/post-its/context';
 
-export default async function Home() {
-  const notes: postIt[] = await new CorenoteApi().notes.getAll();
+export default function Home() {
+  const { postIts } = usePostIts();
 
   return (
     <main className="content">
@@ -15,21 +16,25 @@ export default async function Home() {
       <section className="section-favorite">
         <h4>Favoritas</h4>
         <section className="post-its">
-          {notes.map((note, index) => {
-            if (note.isFavorite) {
-              return <PostIt key={`note-favorite-${index}`} note={note} />;
-            }
-          })}
+          {postIts.favorites &&
+            postIts.favorites.map((note, index) => {
+              if (note.isFavorite) {
+                return <PostIt key={`note-favorite-${index}`} note={note} />;
+              }
+            })}
         </section>
       </section>
       <section className="section-others">
         <h4>Outras</h4>
         <section className="post-its">
-          {notes.map((note, index) => {
-            if (!note.isFavorite) {
-              return <PostIt key={`note-not-favorite-${index}`} note={note} />;
-            }
-          })}
+          {postIts.others &&
+            postIts.others.map((note, index) => {
+              if (!note.isFavorite) {
+                return (
+                  <PostIt key={`note-not-favorite-${index}`} note={note} />
+                );
+              }
+            })}
         </section>
       </section>
     </main>
