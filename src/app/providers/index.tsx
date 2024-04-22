@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { PostItsProvider } from './post-its';
+import { NotesProvider } from './post-its';
 
 export const Providers = ({ children }: { children: ReactNode }) => {
-  return <PostItsProvider>{children}</PostItsProvider>;
+  return <NotesProvider>{children}</NotesProvider>;
 };

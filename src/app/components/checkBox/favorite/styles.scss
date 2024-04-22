@@ -3,8 +3,10 @@
 .isFavorite {
     @include flexCenter(row);
     font-size: 19px;
+    cursor: pointer;
+
     input[type= "checkbox" ]{
-        display: none;
+        display: none;    
     };
 
     svg {
@@ -12,7 +14,7 @@
         stroke-width: 1px;
         fill: none;
     }
-    input[type= "checkbox" ][checked] ~ svg{
+    input[type= "checkbox" ][value='true'] ~ svg{
         fill: #FFA000;
     }
 }

@@ -1,37 +1,41 @@
 'use client';
 
 import './styles.scss';
-
-import { PostIt } from './components/postit';
-import { usePostIts } from '@/app/providers/post-its/context';
+import { useNotes } from '@/app/providers/post-its/context';
+import { BuildPostIts } from './components/postit/build';
+import { CreatePostIt } from './components/postit/create';
 
 export default function Home() {
-  const { postIts } = usePostIts();
+  const { notes } = useNotes();
 
   return (
     <main className="content">
       <section className="section-create">
-        <PostIt />
+        <CreatePostIt />
       </section>
       <section className="section-favorite">
         <h4>Favoritas</h4>
         <section className="post-its">
-          {postIts.favorites &&
-            postIts.favorites.map((note, index) => {
-              if (note.isFavorite) {
-                return <PostIt key={`note-favorite-${index}`} note={note} />;
-              }
-            })}
+          {notes.map((note) => {
+            if (note.isFavorite) {
+              return (
+                <BuildPostIts key={`post-it-favorite-${note.id}`} note={note} />
+              );
+            }
+          })}
         </section>
       </section>
       <section className="section-others">
         <h4>Outras</h4>
         <section className="post-its">
-          {postIts.others &&
-            postIts.others.map((note, index) => {
+          {notes.length > 0 &&
+            notes.map((note) => {
               if (!note.isFavorite) {
                 return (
-                  <PostIt key={`note-not-favorite-${index}`} note={note} />
+                  <BuildPostIts
+                    key={`postIt-not-favorite-${note.id}`}
+                    note={note}
+                  />
                 );
               }
             })}

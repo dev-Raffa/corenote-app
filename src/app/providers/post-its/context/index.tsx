@@ -1,6 +1,6 @@
 import { createContext, use, useContext } from 'react';
-import { IPostItsContext } from '../interface';
+import { INotesContext } from '../interface';
 
-export const PostItsContext = createContext({} as IPostItsContext);
+export const NotesContext = createContext({} as INotesContext);
 
-export const usePostIts = () => use(PostItsContext);
+export const useNotes = () => useContext(NotesContext);

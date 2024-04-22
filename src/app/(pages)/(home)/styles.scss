@@ -3,7 +3,7 @@
 
 .content {
     @include flexCenter(column);
-    padding-top: 25px;
+    padding: 25px, 0;
     gap: 65px;
 
     section{   

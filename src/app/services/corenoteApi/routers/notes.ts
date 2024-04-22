@@ -22,7 +22,7 @@ export class ApiRouterNotes {
     });
   }
 
-  async save(args: Omit<note, 'id'>): Promise<note[]> {
+  async save(args: Omit<note, 'id'>): Promise<note> {
     const create = {
       create: { ...args }
     };
