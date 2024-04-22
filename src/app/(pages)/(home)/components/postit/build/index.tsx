@@ -41,22 +41,22 @@ export const BuildPostIts = ({ note }: { note: note }) => {
     setStatePostIt((prev)=>({isEditing: true, buttonClicked: '', noteChanges: {...prev.noteChanges, isFavorite: value}}))
   };
 
-  const btSaveOnClick = async ()=>{
-    await coreNoteApi.notes.edit(note.id,{
+  const btSaveOnClick = async()=>{
+   const response = await coreNoteApi.notes.edit(note.id,{
         title: statePostIt.noteChanges.title,
         content: statePostIt.noteChanges.content,
         isFavorite: statePostIt.noteChanges.isFavorite,
         colorOption: statePostIt.noteChanges.colorOption
-    }).then( (response)=>{
-      notes.push(response)
-      console.log(response)
+    }).then( (response)=>response)
+
+    notes.push(response)
       setNotes(notes)
+      console.log(notes)
       setStatePostIt({
         buttonClicked: '',
         isEditing: false,
         noteChanges: response
       })
-    })
   }
 
   const btCancelOnClick = () =>{

@@ -3,7 +3,9 @@
 
 
 .post-it{
-    width: 390px;
+    width: 90%;
+    max-width: 390px;
+    min-width: 300px;
     height: 103.36PX;
     border: 1px solid #D9D9D9;
     border-radius: 25px;

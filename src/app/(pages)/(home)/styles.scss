@@ -3,7 +3,7 @@
 
 .content {
     @include flexCenter(column);
-    padding: 25px, 0;
+    padding: 25px 0;
     gap: 65px;
 
     section{   
@@ -13,7 +13,8 @@
         gap: 12px;
 
         h4{
-            width: 390px;
+            width: 100%;
+            max-width: 390X;
             font-size: 12px;
             font-weight: 400;
             line-height: 14.52px;
