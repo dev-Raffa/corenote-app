@@ -42,21 +42,20 @@ export const BuildPostIts = ({ note }: { note: note }) => {
   };
 
   const btSaveOnClick = async()=>{
-   const response = await coreNoteApi.notes.edit(note.id,{
+    await coreNoteApi.notes.edit(note.id,{
         title: statePostIt.noteChanges.title,
         content: statePostIt.noteChanges.content,
         isFavorite: statePostIt.noteChanges.isFavorite,
         colorOption: statePostIt.noteChanges.colorOption
-    }).then( (response)=>response)
-
-    notes.push(response)
-      setNotes(notes)
+    }).then( (response)=>{
+      setNotes((notes)=> notes.map((note)=> note.id==response.id? response : note ))
       console.log(notes)
       setStatePostIt({
         buttonClicked: '',
         isEditing: false,
         noteChanges: response
       })
+    })
   }
 
   const btCancelOnClick = () =>{
@@ -64,6 +63,12 @@ export const BuildPostIts = ({ note }: { note: note }) => {
       buttonClicked: '',
       isEditing: false,
       noteChanges: note
+    })
+  }
+
+  const btExcludeOnClick = ()=>{
+    coreNoteApi.notes.delete(note.id).then(()=>{
+      setNotes((notes)=> notes.filter((oldNote)=> oldNote.id !== note.id))
     })
   }
 
@@ -127,7 +132,7 @@ export const BuildPostIts = ({ note }: { note: note }) => {
             <Button.Cancel onClick={btCancelOnClick} />
           </>
         ) : (
-          <Button.Close />
+          <Button.Close onClick={btExcludeOnClick} />
         )}
       </footer>
     </article>

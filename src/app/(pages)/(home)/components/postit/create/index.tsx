@@ -58,8 +58,7 @@ export const CreatePostIt = () => {
 
   const btSaveOnClick = async () => {
     await coreNoteApi.notes.save(statePostIt.noteChanges).then((response) => {
-      notes.push(response);
-      setNotes(notes);
+      setNotes((prev) => ({ ...prev, response }));
       setStatePostIt({
         buttonClicked: '',
         isEditing: false,
