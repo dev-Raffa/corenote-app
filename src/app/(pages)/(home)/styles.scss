@@ -6,43 +6,6 @@
     padding: 25px 0;
     gap: 65px;
 
-    .section-filters{
-        @include flexRight(row);
-        background-color: transparent;
-        
-        .filter-color{
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            border: 1px solid #D9D9D9;
-            box-shadow: 1px 1px 3px 0px #00000040;
-            background-color: $primary-color;
-        }
-
-        .card-filter-color{
-            display: none;
-            visibility: hidden;
-        }
-
-        .card-filter-color.show{
-            @include flexCenter(column);
-            width: 20px;
-            background-color: $secondary-color;
-            border: 1px solid #D9D9D9;
-        
-            @each $option, $color in $note-color-options{
-                .color-option-#{$option}{
-                    background-color: $color;
-                    height: 15px;
-                    width: 15px;
-                    border-radius: 50%;
-                    border: 1px solid #D9D9D9;
-                    box-shadow: 1px 1px 3px 0px #00000040;
-                }
-            }
-        }
-    }
-
     section{   
         @include flexCenter(row);
         width: 100%;
